@@ -12,7 +12,7 @@ class UnsecuredSegurosApplication : SpringBootServletInitializer() {
 		return application.sources(UnsecuredSegurosApplication::class.java)
 	}
 
-	fun main(args: Array<String>) {
-		runApplication<UnsecuredSegurosApplication>(*args)
-	}
+}
+fun main(args: Array<String>) {
+	runApplication<UnsecuredSegurosApplication>(*args)
 }
