@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -21,7 +22,7 @@ class SeguroController {
     @Autowired
     private lateinit var seguroService: SeguroService
 
-    @GetMapping("/seguros")
+    @GetMapping("/")
     fun getAllSeguros(): ResponseEntity<List<Seguro>> {
         val seguros = seguroService.getAllSeguros()
 
@@ -66,7 +67,7 @@ class SeguroController {
         }
     }
 
-    @PostMapping("/seguros/{idSeguro}")
+    @PutMapping("/seguros/{idSeguro}")
     fun updateSeguroById(
         @PathVariable idSeguro: Int?,
         @RequestBody seguro: Seguro?
@@ -107,7 +108,7 @@ class SeguroController {
         }
 
         seguroService.deleteSeguro(idSeguro)
-        return ResponseEntity(HttpStatus.NO_CONTENT)
+        return ResponseEntity(HttpStatus.OK)
     }
 
 }
